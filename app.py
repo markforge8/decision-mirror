@@ -3,6 +3,8 @@ import pandas as pd
 from pathlib import Path
 from datetime import datetime
 
+st.set_page_config(page_title="决策镜 · 股票决策记录工具", layout="centered")
+
 with st.expander("📌 投资前必读：十大常见错误（看到请冷静）", expanded=True):
     st.markdown("""
 ### ❌ 1. 情绪驱动决策（追涨杀跌）
@@ -74,7 +76,6 @@ with st.expander("📌 投资前必读：哥的十条系统提醒（强制冷静
 # =====================
 # 基础设置
 # =====================
-st.set_page_config(page_title="决策镜 · 股票决策记录工具", layout="centered")
 
 DATA_DIR = Path("data")
 DATA_FILE = DATA_DIR / "stock_records.csv"
@@ -288,4 +289,5 @@ elif page == "查看与复盘（含胜率统计）":
         if st.button("导出 CSV 报告", use_container_width=True):
             df.to_csv("复盘报告.csv", index=False, encoding="utf-8-sig")
             st.success("报告已生成：复盘报告.csv（在项目目录里）")
+
 
